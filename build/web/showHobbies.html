@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .parent {
+            width: 25%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: whitesmoke;
+        }
+        
+        form {
+            width: 50%;
+            height: 50%;
+            text-align: center;
+            /*background: red;*/
+        }
+        
+        .hobbies {
+            display: flex;
+            justify-content: space-between;
+            gap: 1em;
+           margin-top: 1em;
+        }
+        
+        .button1 {
+            margin-top: 1em;
+        }
+    </style>
+    <body>
+        <div class ='parent'>
+            <form class='form1' action='showHobbies' method='get'>
+                <div class='hobbies'>
+                    <label>Basketball</label>
+                    <input type='checkbox' value='Basketball' name='sport' />
+                </div>
+                <div class='hobbies'>
+                    <label>Skating</label>
+                      <input type='checkbox' value='Skating' name='sport' />
+                </div>
+                <div class='hobbies'>
+                    <label>Rugby</label>
+                      <input type='checkbox' value='Rugby' name='sport' />
+                </div>
+                <div class='hobbies'>
+                    <label>Football</label>
+                      <input type='checkbox' value='Football' name='sport' />
+                </div>
+                <div class='hobbies'>
+                    <label>Baseball</label>
+                      <input type='checkbox' value='Baseball' name='sport' />
+                </div>
+                <input class='button1' type='submit' value="submit" />
+            </form>
+        </div>
+    </body>
+</html>
