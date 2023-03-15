@@ -44,6 +44,42 @@
         <servlet-name>requestParam</servlet-name>
         <servlet-class>requestParam</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pageHitCounter</servlet-name>
+        <servlet-class>pageHitCounter</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>practical13HiddenFields</servlet-name>
+        <servlet-class>practical13HiddenFields</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>prac13Output</servlet-name>
+        <servlet-class>prac13Output.prac13Output</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>calendar</servlet-name>
+        <servlet-class>calendar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mamsVersionPageHit</servlet-name>
+        <servlet-class>mamsVersionPageHit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mamCookieServlet1</servlet-name>
+        <servlet-class>mamCookieServlet1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mamCookieServlet2</servlet-name>
+        <servlet-class>mamCookieServlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mamUrlRewriting1</servlet-name>
+        <servlet-class>mamUrlRewriting1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mamUrlRewriting2</servlet-name>
+        <servlet-class>mamUrlRewriting2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>takingParameter</servlet-name>
         <url-pattern>/takingParameter</url-pattern>
@@ -79,6 +115,42 @@
     <servlet-mapping>
         <servlet-name>requestParam</servlet-name>
         <url-pattern>/requestParam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pageHitCounter</servlet-name>
+        <url-pattern>/pageHitCounter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>practical13HiddenFields</servlet-name>
+        <url-pattern>/practical13HiddenFields</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>prac13Output</servlet-name>
+        <url-pattern>/prac13Output</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>calendar</servlet-name>
+        <url-pattern>/calendar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mamsVersionPageHit</servlet-name>
+        <url-pattern>/mamsVersionPageHit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mamCookieServlet1</servlet-name>
+        <url-pattern>/mamCookieServlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mamCookieServlet2</servlet-name>
+        <url-pattern>/mamCookieServlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mamUrlRewriting1</servlet-name>
+        <url-pattern>/mamUrlRewriting1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mamUrlRewriting2</servlet-name>
+        <url-pattern>/mamUrlRewriting2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
