@@ -4,19 +4,19 @@
  * and open the template in the editor.
  */
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Neel Chalke
  */
-public class pageHitCounter extends HttpServlet {
+public class Calculator extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,27 +31,43 @@ public class pageHitCounter extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            response.setHeader("refresh", "5");
             /* TODO output your page here. You may use following sample code. */
-             HttpSession session = request.getSession();
-            Integer count = (Integer) session.getAttribute("count");
-            if (count == null) {
-               count = 0;
-            }
-            count++;  
-            session.setAttribute("count", count);
+            String no1 = request.getParameter("no1");
+            String no2 = request.getParameter("no2");
+            String operator = request.getParameter("operator");
+            int no10 = Integer.parseInt(no1);
+            int no20 = Integer.parseInt(no2);
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet pageHitCounter</title>");            
+            out.println("<title>Servlet Calculator</title>");            
             out.println("</head>");
-            out.println("<body style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;'>");
-                out.println("<div style='width: 60%; height: 10vh; background: whitesmoke; text-align: center;'>");
-                out.println("<h1 style='font-size: 1.2em;'>Servlet practicalTenPageHitCounter</h1>");
-                out.println("<h1 style='font-size: 1.2em;'>");
-                out.println(count);
-                out.println("</h1>");
-                out.println("</div>");
+            out.println("<body>");
+            out.println("<div style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;'>");
+            out.println("<div style='min-width: 50vw; height:50vh; display: flex; flex-direction: column; gap: 1em; justify-content: center; align-items: center; background: lightblue; border-radius: 10px; '>");
+            out.println("<h1 style='color: white; font-weight: bold; font-size: 3em;'>The Answer is</h1>");
+ switch (operator) {
+  case "+":
+    out.println("<h1 style='color: white; font-weight: bold; font-size: 4em;'>" + (no10 + no20) + "</h1>");
+    break;
+  case "-":
+    out.println("<h1 style='color: white; font-weight: bold; font-size: 4em;'>" + (no10 - no20) + "</h1>");
+    break;
+  case "*":
+    out.println("<h1 style='color: white; font-weight: bold; font-size: 4em;'>" + (no10 * no20) + "</h1>");
+    break;
+  case "/":
+    out.println("<h1 style='color: white; font-weight: bold; font-size: 4em;'>" + (no10 / no20) + "</h1>");
+    break;
+  case "%":
+    out.println("<h1 style='color: white; font-weight: bold; font-size: 4em;'>" + (no10 % no20) + "</h1>");
+    break;
+  default:
+    // Add code here for invalid operator
+}
+            out.println("<a style='color: white; font-weight: bold; font-size: 2em;' href='calculator.html'>Go Back</a>");
+            out.println("</div>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -84,6 +100,7 @@ public class pageHitCounter extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
     }
 
     /**

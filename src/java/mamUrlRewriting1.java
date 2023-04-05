@@ -33,7 +33,7 @@ public class mamUrlRewriting1 extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            String link = "<a href='mamUrlRewriting2?email=" + email + "&password=" + password + "'>Click Here</a>";
+            String link = "<a style='text-decoration: none;' href='mamUrlRewriting2?email=" + email + "&password=" + password + "'>Click Here</a>";
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -41,7 +41,7 @@ public class mamUrlRewriting1 extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet mamUrlRewriting1 at " + request.getContextPath() + "</h1>");
-            out.println("<h1>");
+            out.println("<h1 style='font-size: 2em; background: whitesmoke;'>");
             out.println(link);
             out.println("</h1>");
             out.println("</body>");

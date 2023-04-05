@@ -49,8 +49,10 @@ public class mamsVersionPageHit extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet mamsVersionPageHit</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>The page hit counter is " + (++pageHit) + "</h1>");
+            out.println("<body style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;'>");
+            out.println("<div style='width: 50vw; height: 10vh; display: flex; justify-content: center; align-items: center; background: whitesmoke; border-radius: 10px;'>");
+            out.println("<h1 style='font-size:2em;'>The page hit counter is " + (++pageHit) + "</h1>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }

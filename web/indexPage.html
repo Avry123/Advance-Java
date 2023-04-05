@@ -20,7 +20,7 @@ and open the template in the editor.
         }
         
         .center {
-            width: 60vw;
+            min-width: 60vw;
             min-height: 70vh;
             display: flex;
             flex-direction: column;
@@ -29,15 +29,35 @@ and open the template in the editor.
             background: yellow;
             gap: 1em;
             border-radius: 10px;
+            padding: 2em;
+        }
+        
+        a {
+            text-color: black;
+            font-size: 1em;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            background: white;
+            font-weight: bold;
+            padding: 0.5em;
+            border-radius: 10px;s
         }
     </style>
     <body>
         <div class="center">
-            <a href="postGetRequest">Web Application using Http Servlet doGet() method</a>
-            <a href="postRequest">Web Application using Http Servlet doPost() method</a>
+            <a href="postGetRequest.html">Web Application using Http Servlet doGet() method</a>
+            <a href="calculator.html">Calculator</a>
             <a href="headInfo">Web Application to display Http Request Header</a>
-            <a href="index.html">Web Application to initialize parameters using web.xml and Servlet Context Parameter in Servlet</a>
+            <a href="initParameter">Web Application to initialize parameters using web.xml and Servlet Context Parameter in Servlet</a>
             <a href="ColorThing.html">Web Application using Http Servlet Request getParameter() methods </a>
+            <a href="mamsVersionPageHit">Page Hit Counter</a>
+            <a href="initParameter">Init Parameter and Context Parameter concatination.</a>
+            <a href="pageHitCounter">Page Hit counter using session</a>
+            <a href="urlRewritingSession1">Session tracking using url rewriting</a>
+            <a href="mamCookieVersion.html">Session Tracking using cookies</a>
+            <a href="practical13.html">Session Tracking using hidden field</a>
         </div>
     </body>
 </html>

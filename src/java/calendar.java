@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +34,7 @@ public class calendar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+            Cookie[] cookies = request.getCookies();
             response.setHeader("Refresh", "5");
             
             Calendar calendar = new GregorianCalendar();
@@ -62,6 +63,11 @@ public class calendar extends HttpServlet {
             
             
             out.println("<h1>The current time is  " + ct + "</h1>");
+            for (Cookie cookie: cookies) {
+            out.println("<h1>The cookie name is " + cookie.getName() + "</h1>");
+            out.println("<h1>The cookie value is " + cookie.getValue() + "</h1>");
+            
+            }
             out.println("</body>");
             out.println("</html>");
         }

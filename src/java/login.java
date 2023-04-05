@@ -3,20 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.sql.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Neel Chalke
  */
-public class pageHitCounter extends HttpServlet {
+public class login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,31 +31,45 @@ public class pageHitCounter extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String username = request.getParameter("email");
+        String password = request.getParameter("password");
+        String name = "";
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            response.setHeader("refresh", "5");
             /* TODO output your page here. You may use following sample code. */
-             HttpSession session = request.getSession();
-            Integer count = (Integer) session.getAttribute("count");
-            if (count == null) {
-               count = 0;
-            }
-            count++;  
-            session.setAttribute("count", count);
+            Class.forName("com.mysql.jdbc.Driver");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet pageHitCounter</title>");            
+            out.println("<title>Servlet login</title>");            
             out.println("</head>");
             out.println("<body style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;'>");
-                out.println("<div style='width: 60%; height: 10vh; background: whitesmoke; text-align: center;'>");
-                out.println("<h1 style='font-size: 1.2em;'>Servlet practicalTenPageHitCounter</h1>");
-                out.println("<h1 style='font-size: 1.2em;'>");
-                out.println(count);
-                out.println("</h1>");
-                out.println("</div>");
+            try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root", "");
+            String sql = "SELECT * FROM person WHERE email='" + username + "' and password= '" + password + "'";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                  name = rs.getString("username");
+            }
+            if (name != "") {
+                     response.sendRedirect("indexPage.html");
+                  } else {
+                    out.println("<div style='background: whitesmoke; border-radius: 10px; text-align: center; width: 30vw; height: 50vh; dislay: flex; justify-content: center; align-items: center;'>"
+                            + "<h3>There was a error in your login,Please login properly</h3>"
+                            + "<h3><a href='login.html' style='text-decoration: none;'>Login Here</a></h3>"
+                            + "<h3>If you have not registered yet click here</h3>" 
+                            + "<h3><a href='RegistrationPage.html' style='text-decoration: none;'>Register Here</a></h3>"
+                            + "</div>");
+                  }
+             } catch (Exception e) {
+            response.getWriter().print(e);
+            }
             out.println("</body>");
             out.println("</html>");
+        } catch (ClassNotFoundException ex) {
+            
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

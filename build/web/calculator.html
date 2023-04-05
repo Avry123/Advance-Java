@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <style>
+        
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .center {
+            width: 50vw;
+            height: 50vh;
+            background: whitesmoke;
+            border-radius: 10px;
+        }  
+        .center:hover {
+            border: 2px solid black;
+        }
+        
+        form {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+        }
+    </style>
+    <body>
+        <div class="center">
+        <form action="Calculator" method="post">
+            <div>
+               <label for="no1">Number 1</label>
+               <input type="text" name="no1" id="no1" />
+            </div>
+            <div>
+               <label for="no2">Number 1</label>
+               <input type="text" name="no2" id="no2" />
+            </div>
+            <div>
+                <label for="operator">Valid Operations</label>
+                <select id="operator" name="operator">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="%">%</option>
+                </select>
+                
+            </div>
+            <input type="submit" value="submit" />
+        </form>
+        </div>
+    </body>
+</html>

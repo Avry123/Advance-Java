@@ -7,6 +7,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,27 +30,27 @@ public class initParameter extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        teamName = config.getInitParameter("teamName");
-        
-    }
+   
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+            ServletContext animeContextParameter = getServletContext();
+            String anime_name = animeContextParameter.getInitParameter("animeName");
+            ServletConfig config1 = getServletConfig();
+            teamName = config1.getInitParameter("teamName");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet initParameter</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet initParameter at " + request.getContextPath() + "</h1>");
-            out.println(teamName);
-            out.println("</h1>");
+            out.println("<body style='width: 100vw; height: 100vh; display:flex; justify-content: center; align-items: center;'>");
+            out.println("<div style='min-width: 60vw; height: 10vh; background: whitesmoke; padding: 1em; border-radius: 10px;'>");
+//            out.println("<h1>Servlet initParameter at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='font-size:2em; font-weight:bold;'>My favorite team is " + teamName + " " + "the favorite anime is " + anime_name + "</h1>" );
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }

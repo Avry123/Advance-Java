@@ -7,9 +7,11 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,11 +33,14 @@ public class BackGround extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            Cookie backgroundCookie = new Cookie("background", "blue");
             String background = request.getParameter("background");
             String fontColor = request.getParameter("font");
             String message = request.getParameter("message");
             String fontFamily = request.getParameter("fontFamily");
             String fontSize = request.getParameter("fontSize") + "em";
+            HttpSession session1 = request.getSession();
+          
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -43,15 +48,16 @@ public class BackGround extends HttpServlet {
             out.println("</head>");
             out.println("<body style='display: flex; justify-content: center; align-items: center;'>");
            // out.println("<h1>Servlet BackGround at " + request.getContextPath() + "</h1>");
-            out.println("<div style='width:50vw; height: 50vh; background:" + background + "; display: flex; flex-direction: column; justify-content: center; align-items: center;'>");
+            out.println("<div style='min-width:50vw; min-height: 50vh; background:" + background + "; display: flex; flex-direction: column; justify-content: center; align-items: center;'>");
             out.println("<a href='ColorThing.html'>Go Back</a>");
-            out.println("<h1 style='color:" + fontColor + "'; font-family:" + fontFamily + "; font-size:" + fontSize + ";>");
+            out.println("<h1 style='color:" + fontColor + "; font-family:" + fontFamily + "; font-size:" + fontSize + ";'>");
             out.println(message);
             out.println("</h1>");
             out.println("</div>");
             out.println("<div>");
             out.println("</body>");
             out.println("</html>");
+            response.addCookie(backgroundCookie);
         }
     }
 

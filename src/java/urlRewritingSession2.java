@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Neel Chalke
  */
-public class pageHitCounter extends HttpServlet {
-
+public class urlRewritingSession2 extends HttpServlet {
+     private String paramName;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,27 +31,20 @@ public class pageHitCounter extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            response.setHeader("refresh", "5");
             /* TODO output your page here. You may use following sample code. */
-             HttpSession session = request.getSession();
-            Integer count = (Integer) session.getAttribute("count");
-            if (count == null) {
-               count = 0;
+            String sessionId = request.getParameter("id");
+            HttpSession session1 = request.getSession(false);
+            if (session1 != null) {
+               paramName = (String) session1.getAttribute("username");
             }
-            count++;  
-            session.setAttribute("count", count);
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet pageHitCounter</title>");            
+            out.println("<title>Servlet urlRewritingSession2</title>");            
             out.println("</head>");
-            out.println("<body style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;'>");
-                out.println("<div style='width: 60%; height: 10vh; background: whitesmoke; text-align: center;'>");
-                out.println("<h1 style='font-size: 1.2em;'>Servlet practicalTenPageHitCounter</h1>");
-                out.println("<h1 style='font-size: 1.2em;'>");
-                out.println(count);
-                out.println("</h1>");
-                out.println("</div>");
+            out.println("<body>");
+            out.println("<h1>Session id is " + sessionId + "</h1>");
+            out.println("<h1>The session value is " + paramName + "</h1>" );
             out.println("</body>");
             out.println("</html>");
         }

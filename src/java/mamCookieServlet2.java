@@ -41,15 +41,19 @@ public class mamCookieServlet2 extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet mamCookieServlet2</title>");            
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body style='width: 100vw; height: 100vh; display: flex; flex-direction: column; gap: 1em; justify-content: center; align-items: center;'>");
             for (Cookie c: cookie) {
                 name = c.getName();
                 value = c.getValue();
                 if (name.isEmpty()) {
-                 out.println("<h1>The login is not there, so you would have to give name first</h1>");
-                 out.println("<a href='/mamCookiesVersion'>Click Here to register.</a>");
+                 out.println("<div style='min-width:70%; height: 10%; background: whitesmoke;'>");   
+                 out.println("<h1 style='font-size: 2em; color: black;'>The login is not there, so you would have to give name first</h1>");
+                 out.println("<a style='font-size: 2em; color: black;' href='/mamCookiesVersion'>Click Here to register.</a>");
+                 out.println("</div>"); 
                 } else {
+                out.println("<div style='min-width:70%; height: 10%; background: whitesmoke; padding: 1em; border-radius: 10px;'>");
                 out.println("<h1>The cookie name is " + name + " the value is " + value + "</h1>");
+                out.println("</div>");
                 }
             }
             out.println("</body>");

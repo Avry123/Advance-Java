@@ -31,13 +31,22 @@ public class practical13HiddenFields extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            String username = request.getParameter("email");
+            String password = request.getParameter("password");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet practical13HiddenFields</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet practical13HiddenFields at " + request.getContextPath() + "</h1>");
+            out.println("<body style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;'>");
+//            out.println("<h1>Servlet practical13HiddenFields at " + request.getContextPath() + "</h1>");
+            out.println("<div style='width: 50vw; height: 50vh;'>");
+            out.println("<form action='practical13Hidden2' method='post' style='width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;'>");
+            out.println("<input type='hidden' value='" + username + "' name='username' />");
+            out.println("<input type='hidden' value='" + password + "' name='password' />");
+            out.println("<button>Go Show hidden field Value</button>");
+            out.println("</form>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }

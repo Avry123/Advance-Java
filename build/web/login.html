@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <style>
+        body {
+            
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .after {  
+            width: 30vw;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: whitesmoke;
+            border-radius: 10px;
+        }
+        
+        form {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+        }
+        
+        .label1 {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 1em;
+        }
+        
+    </style>
+    <body>
+        <div class="after">
+            <form action="login" method="POST">
+                <div class="label1">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="Email" id="email" />
+                </div>
+                <div class="label1">
+                    <label for="password">Password</label>
+                    <input type="text" name="password" placeholder="Password" id="password" />
+                </div>
+                <input type="submit" value="submit" />
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,22 +1,49 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-    </head>
-    <body>
-        <div>
-            <form action="mamUrlRewriting1">
-               <input type="email" name="email" />
-               <input type="password" name="password" />
-               <input type="submit" value="submit" />
-            </form>
-        </div>
-    </body>
+<head>
+	<title>TODO supply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<style>
+		body {
+			background-color: #f26d7d; /* Set the background color */
+		}
+		div {
+			margin: 0 auto; /* Center the div horizontally */
+			width: 50%; /* Set the width of the div */
+			background-color: #f7b7c0; /* Set the background color of the div */
+			padding: 20px; /* Add some padding to the div */
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow to the div */
+			border-radius: 5px; /* Round the corners of the div */
+		}
+		form {
+			display: flex; /* Display the form items in a row */
+			flex-direction: column; /* Stack the form items vertically */
+			align-items: center; /* Center the form items horizontally */
+		}
+		input[type="email"], input[type="password"], input[type="submit"] {
+			margin-bottom: 10px; /* Add some space between the form items */
+			padding: 10px; /* Add some padding to the form items */
+			border: none; /* Remove the border */
+			border-radius: 5px; /* Round the corners */
+			background-color: #fff; /* Set the background color */
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow */
+			transition: background-color 0.3s ease; /* Add a transition effect */
+		}
+		input[type="submit"]:hover {
+			background-color: #f26d7d; /* Change the background color on hover */
+			color: #fff; /* Change the text color on hover */
+			cursor: pointer; /* Change the cursor on hover */
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<form action="mamUrlRewriting1">
+			<input type="email" name="email" placeholder="Enter your email" />
+			<input type="password" name="password" placeholder="Enter your password" />
+			<input type="submit" value="Submit" />
+		</form>
+	</div>
+</body>
 </html>

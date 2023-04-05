@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,16 +32,20 @@ public class postGetRequest extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             String emai1 = request.getParameter("email");
+            HttpSession session1 = request.getSession();
+            String emai1 = request.getParameter("email");
             String password = request.getParameter("password");
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet postGetRequest</title>");            
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; border-radius: 10px;'>");
+            out.println("<div style='min-width: 80vw; height: 10vh; background: whitesmoke; text-align: center;'>");
               out.println("<h1>The email is  " + emai1 + "The password is " + password +  " </h1>");
-            out.println("</body>");
+            out.println("</div>");
+              out.println("</body>");
             out.println("</html>");
         }
     }

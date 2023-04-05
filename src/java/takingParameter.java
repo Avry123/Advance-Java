@@ -43,17 +43,23 @@ public class takingParameter extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet takingParameter</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>");
-            out.println("The context Param name is ");
-            out.println(anime);
-            out.println("</h1>");
-            out.println("<h1>Servlet takingParameter at " + request.getContextPath() + "</h1>");
+            out.println("<body style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;'>");
+//            out.println("<h1>");
+//            out.println("The context Param name is ");
+//            out.println(anime);
+//            out.println("</h1>");
+//            out.println("<h1>Servlet takingParameter at " + request.getContextPath() + "</h1>");
+            out.println("<div style='min-width:70vw; height: 10vh; background: whitesmoke;'>");
             out.println("<h1>The email is " + email + " the password is " + password + "<h1>");
             while (emailName.hasMoreElements()) {
             String name = emailName.nextElement();
+            out.println("<div style='min-width:70vw; height: 10vh; background: whitesmoke;'>");
+            out.println("<h3>The parameter name is ");
             out.println(name);
+            out.println("</h3>");
+            out.println("</div>");
             }
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }

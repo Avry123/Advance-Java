@@ -40,8 +40,10 @@ public class mamCookieServlet1 extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet mamCookieServlet1</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1><a href='/servletPractise/mamCookieServlet2'>Go to the next servlet</a></h1>");
+            out.println("<body style='width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;'>");
+            out.println("<div style='min-width:50%; height: 10vh; padding: 1em; display: flex; justify-content: center; align-items: center;'>");
+            out.println("<h1 style='font-size: 4em; color: black;'><a style='color: black; text-decoration: none;' href='/servletPractise/mamCookieServlet2'>Go to the next servlet</a></h1>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
